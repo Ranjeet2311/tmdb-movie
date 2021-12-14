@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+
+  .left-column {
+    width: 20%;
+    display: flex;
+    // justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    .genreWrapper {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .movie-container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: auto auto;
+    grid-auto-flow: dense;
+    gap: 1rem;
+  }
+}
