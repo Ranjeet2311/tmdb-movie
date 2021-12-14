@@ -3,43 +3,21 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Genre from "./components/Genre";
 import MovieItem from "./components/MovieItem";
-import useGenre from "./components/useGenre";
-
-// const genereList = [
-//   { id: 28, name: "Action" },
-//   { id: 12, name: "Adventure" },
-//   { id: 16, name: "Animation" },
-//   { id: 35, name: "Comedy" },
-//   { id: 80, name: "Crime" },
-//   { id: 99, name: "Documentary" },
-//   { id: 18, name: "Drama" },
-//   { id: 10751, name: "Family" },
-//   { id: 14, name: "Fantasy" },
-//   { id: 36, name: "History" },
-//   { id: 27, name: "Horror" },
-//   { id: 10402, name: "Music" },
-//   { id: 9648, name: "Mystery" },
-//   { id: 10749, name: "Romance" },
-//   { id: 878, name: "Science Fiction" },
-//   { id: 10770, name: "TV Movie" },
-//   { id: 53, name: "Thriller" },
-//   { id: 10752, name: "War" },
-//   { id: 37, name: "Western" },
-// ];
+// import useGenre from "./components/useGenre";
 
 function App() {
   const [movies, setMovies] = useState();
   const [selectGenere, setSelectGenere] = useState([]);
   const [genere, setGenere] = useState();
-  const genreAddress = useGenre(setGenere);
+  // const genreAddress = useGenre(setGenere);
 
-  // const genreAddress = () => {
-  //   const GenreIds = setGenere.map((gen) => gen.id);
+  const genreAddress = () => {
+    const GenreIds = setGenere.map((gen) => gen.id);
 
-  //   return GenreIds.reduce(
-  //     (accumulator, current) => accumulator + "," + current
-  //   );
-  // };
+    return GenreIds.reduce(
+      (accumulator, current) => accumulator + "," + current
+    );
+  };
 
   const getMovieRequest = async () => {
     const { data } = await axios.get(
@@ -51,13 +29,12 @@ function App() {
     setMovies(data.results);
 
     console.log(data.results);
-    // console.log(data.genre);
   };
 
   useEffect(() => {
     getMovieRequest();
     // eslint-disable-next-line
-  }, [genreAdd]);
+  }, [genreAddress]);
 
   const ButtonClickHandler = () => {
     console.log("btn clicked");
@@ -77,7 +54,6 @@ function App() {
           onClick={ButtonClickHandler}
         />
       </div>
-      {/* {movies.map(({ title, overview, poster_path }, i) => { */}
 
       <div className="movie-container">
         {movies &&

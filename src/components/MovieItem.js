@@ -4,17 +4,8 @@ import "./MovieItem.scss";
 const imgpath = "https://image.tmdb.org/t/p/w200";
 const unAvailable = "https://www.movienewz.com/img/films/poster-holder.jpg";
 
-// function MovieItem({ name, overview, poster }) {
 function MovieItem(props) {
-  const {
-    name,
-    title,
-    overview,
-    poster_path,
-    media_type,
-    vote_average,
-    release_date,
-  } = props.movie;
+  const { name, title, overview, poster_path, release_date } = props.movie;
   return (
     <div className="movie-item-wrapper">
       <div className="movie-item">
